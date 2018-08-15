@@ -1,11 +1,11 @@
 <template>
-    <div class="_wwbuilder_A  " v-ww-min-height="100">
+    <div class="_wwbuilder_C">
         <wwObject v-bind:ww-object="section.data.background" class="background" ww-category="background"></wwObject>
 
-        <div v-ww-vertical-align>
+        <div>
             <div class="contents">
                 <div class="row-container container-fluid" v-for="(row, index) in section.data.rows" :key="index">
-                    <wwColumns v-bind:ww-columns="row" v-ww-min-height="100"></wwColumns>
+                    <wwColumns v-bind:ww-columns="row"></wwColumns>
                 </div>
             </div>
         </div>
@@ -14,7 +14,7 @@
 
 <script>
 export default {
-    name: "wwbuilder_A",
+    name: "wwbuilder_C",
     props: {
         section: Object
     },
@@ -149,11 +149,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-._wwbuilder_A {
+._wwbuilder_C {
   position: relative;
 }
 
-._wwbuilder_A .background {
+._wwbuilder_C .background {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -161,39 +161,39 @@ export default {
   left: 0;
 }
 
-._wwbuilder_A .contents {
+._wwbuilder_C .contents {
   position: relative;
   width: 100%;
 }
 
-._wwbuilder_A .top-padding-edit {
+._wwbuilder_C .top-padding-edit {
   height: 50px;
   width: 100%;
 }
 
-._wwbuilder_A .ww-add-block-container {
+._wwbuilder_C .ww-add-block-container {
   position: relative;
   text-align: center;
   padding: 15px;
 }
 
-._wwbuilder_A .ww-add-block {
+._wwbuilder_C .ww-add-block {
   position: relative;
   height: 100px;
   width: 100px;
   display: inline-block;
 }
 
-._wwbuilder_A .row-container {
+._wwbuilder_C .row-container {
   width: 100%;
   position: relative;
 }
 
-._wwbuilder_A .row-container.editing {
+._wwbuilder_C .row-container.editing {
   padding-left: 100px;
 }
 
-._wwbuilder_A .row-container > .edit-button-top-left {
+._wwbuilder_C .row-container > .edit-button-top-left {
   top: 2px;
   left: 2px;
 }
