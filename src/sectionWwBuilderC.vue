@@ -138,12 +138,8 @@ export default {
     beforeDestroy: function () {
 
     },
-    created: function () {
-        console.log('CREATED :', JSON.parse(JSON.stringify(this.section.data.rows[0])))
-    },
-    mounted: function () {
-
-    }
+    created: function () { },
+    mounted: function () { }
 };
 </script>
 
