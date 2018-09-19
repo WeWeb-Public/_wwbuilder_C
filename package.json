@@ -1,10 +1,12 @@
 {
   "name": "_wwbuilder_C",
+  "type": "section",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "build": "webpack --config webpack.config.js -p",
-    "serve": "webpack-dev-server -d --inline"
+    "serve": "webpack-dev-server -d --inline",
+    "upload": "node upload.js"
   },
   "dependencies": {
     "vue": "^2.5.16"
@@ -13,6 +15,7 @@
     "@vue/cli-plugin-babel": "^3.0.0-beta.15",
     "@vue/cli-plugin-eslint": "^3.0.0-beta.15",
     "@vue/cli-service": "^3.0.0-beta.15",
+    "axios": "^0.18.0",
     "babel-loader": "^7.1.4",
     "css-loader": "^0.28.11",
     "vue-loader": "^15.2.2",
