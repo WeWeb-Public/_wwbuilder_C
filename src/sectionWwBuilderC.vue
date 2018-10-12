@@ -1,6 +1,6 @@
 <template>
     <div class="_wwbuilder_C">
-        <wwObject v-bind:ww-object="section.data.background" class="background" ww-category="background"></wwObject>
+        <wwObject v-bind:ww-object-ref="section.data.background" class="background" ww-category="background"></wwObject>
 
         <div>
             <div class="contents">
