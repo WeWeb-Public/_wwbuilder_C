@@ -16,7 +16,13 @@
 export default {
     name: "wwbuilder_C",
     props: {
-        section: Object
+        sectionRef: Object
+    },
+    computed: {
+        section() {
+            //return this.sectionRef.wwGet();
+            return this.$store.state.sections[this.sectionRef.id];
+        }
     },
     methods: {
         addRow: function () {
