@@ -4,9 +4,7 @@
 
         <div>
             <div class="contents">
-                <div class="row-container container-fluid" v-for="(row, index) in section.data.rows" :key="index">
-                    <wwColumns v-bind:ww-columns="row"></wwColumns>
-                </div>
+                <wwObject class="row-container container-fluid" v-bind:ww-object="row" v-for="(row, index) in section.data.rows" :key="index"></wwObject>
             </div>
         </div>
     </div>
