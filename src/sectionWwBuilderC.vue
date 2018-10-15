@@ -1,10 +1,10 @@
 <template>
     <div class="_wwbuilder_C">
-        <wwObject v-bind:ww-object="section.data.background" class="background" ww-category="background"></wwObject>
+        <wwObject v-bind:ww-object="section.data.background" v-bind:section="section" class="background" ww-category="background"></wwObject>
 
         <div>
             <div class="contents">
-                <wwObject class="row-container container-fluid" v-bind:ww-object="row" v-for="(row, index) in section.data.rows" :key="index"></wwObject>
+                <wwObject class="row-container container-fluid" v-for="(row, index) in section.data.rows" :key="index" v-bind:ww-object="row" v-bind:section="section"></wwObject>
             </div>
         </div>
     </div>
