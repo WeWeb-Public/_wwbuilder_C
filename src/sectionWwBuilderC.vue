@@ -1,5 +1,10 @@
 <template>
     <div class="_wwbuilder_C">
+
+        <!-- wwManager:start -->
+        <wwSectionEditMenu v-bind:section="section"></wwSectionEditMenu>
+        <!-- wwManager:end -->
+
         <wwObject v-bind:ww-object="section.data.background" v-bind:section="section" class="background" ww-category="background"></wwObject>
 
         <div>
