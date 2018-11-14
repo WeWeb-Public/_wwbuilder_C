@@ -1,17 +1,14 @@
 <template>
-    <div class="_wwbuilder_C">
-
+    <div class="wwbuilder_C">
         <!-- wwManager:start -->
-        <wwSectionEditMenu v-bind:section="section"></wwSectionEditMenu>
+        <wwSectionEditMenu v-bind:sectionCtrl="sectionCtrl"></wwSectionEditMenu>
         <!-- wwManager:end -->
 
         <wwObject v-bind:ww-object="section.data.background" class="background" ww-category="background"></wwObject>
 
-        <div>
-            <div class="contents">
-                <wwObject class="row-container container-fluid" v-for="(row, index) in section.data.rows" :key="index" v-bind:ww-object="row"></wwObject>
-            </div>
-        </div>
+        <wwLayoutColumn tag='div' ww-default="ww-row" :ww-list="section.data.rows" class="wwobjects-wrapper">
+            <wwObject v-for="row in section.data.rows" :key="row.uniqueId" v-bind:ww-object="row"></wwObject>
+        </wwLayoutColumn>
     </div>
 </template>
 
@@ -23,143 +20,38 @@ export default {
     },
     data() {
         return {
-            section: this.sectionCtrl.get()
+
         }
     },
     computed: {
+        section() {
+            return this.sectionCtrl.get();
+        }
+    },
+    watch: {
+        section() {
+
+        }
     },
     methods: {
-        addRow: function () {
-            if (!this.section.data.rows) {
-                this.section.data.rows = [];
-            }
-
-            const defaultRow = {
-                config: {
-                    count: 3,
-                    xs: null,
-                    sm: [{
-                        offset: 0,
-                        width: 33.2,
-                        borders: [
-                            {
-                                width: 0,
-                                color: "#000000",
-                                style: "solid"
-                            },
-                            {
-                                width: 0,
-                                color: "#000000",
-                                style: "solid"
-                            },
-                            {
-                                width: 0,
-                                color: "#000000",
-                                style: "solid"
-                            },
-                            {
-                                width: 0,
-                                color: "#000000",
-                                style: "solid"
-                            },
-                        ]
-                    }, {
-                        offset: 0,
-                        width: 33.2,
-                        borders: [
-                            {
-                                width: 0,
-                                color: "#000000",
-                                style: "solid"
-                            },
-                            {
-                                width: 0,
-                                color: "#000000",
-                                style: "solid"
-                            },
-                            {
-                                width: 0,
-                                color: "#000000",
-                                style: "solid"
-                            },
-                            {
-                                width: 0,
-                                color: "#000000",
-                                style: "solid"
-                            },
-                        ]
-                    }, {
-                        offset: 0,
-                        width: 33.2,
-                        borders: [
-                            {
-                                width: 0,
-                                color: "#000000",
-                                style: "solid"
-                            },
-                            {
-                                width: 0,
-                                color: "#000000",
-                                style: "solid"
-                            },
-                            {
-                                width: 0,
-                                color: "#000000",
-                                style: "solid"
-                            },
-                            {
-                                width: 0,
-                                color: "#000000",
-                                style: "solid"
-                            },
-                        ]
-                    }
-                    ],
-                    md: null,
-                    lg: null
-                },
-                data: [
-                    {
-                        background: null,
-                        wwObjects: []
-                    },
-                    {
-                        background: null,
-                        wwObjects: []
-                    },
-                    {
-                        background: null,
-                        wwObjects: []
-                    }
-                ]
-            };
-
-            const newRow = JSON.parse(JSON.stringify(defaultRow));
-            newRow.uniqueId = wwUtils.getUniqueId();
-
-            this.section.data.rows.push(newRow);
-        },
-
-        removeRow: function (row) {
-            const index = this.section.data.rows.indexOf(row);
-            this.section.data.rows.splice(index, 1);
-        },
     },
     beforeDestroy: function () {
 
     },
-    created: function () { },
-    mounted: function () { }
+    created: function () {
+    },
+    mounted: function () {
+    }
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-._wwbuilder_C {
+.wwbuilder_C {
   position: relative;
+  /*flex-basis: 100%;*/
 }
 
-._wwbuilder_C .background {
+.wwbuilder_C .background {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -167,40 +59,7 @@ export default {
   left: 0;
 }
 
-._wwbuilder_C .contents {
-  position: relative;
-  width: 100%;
-}
-
-._wwbuilder_C .top-padding-edit {
-  height: 50px;
-  width: 100%;
-}
-
-._wwbuilder_C .ww-add-block-container {
-  position: relative;
-  text-align: center;
-  padding: 15px;
-}
-
-._wwbuilder_C .ww-add-block {
-  position: relative;
-  height: 100px;
-  width: 100px;
-  display: inline-block;
-}
-
-._wwbuilder_C .row-container {
-  width: 100%;
-  position: relative;
-}
-
-._wwbuilder_C .row-container.editing {
-  padding-left: 100px;
-}
-
-._wwbuilder_C .row-container > .edit-button-top-left {
-  top: 2px;
-  left: 2px;
+.wwobjects-wrapper {
+  min-height: 100%;
 }
 </style>
